@@ -1,0 +1,24 @@
+{
+  "siteName": "TechHub",
+  "tagline": "COMPARTO CONOCIMIENTO, CÓDIGO Y ESTRATEGIAS",
+  "siteDescription": "Un espacio donde exploramos arquitectura de software, inteligencia artificial y automatización de élite. Artículos técnicos, recursos prácticos y una comunidad activa.",
+  "contactEmail": "hola@techhub.dev",
+  "supportEmail": "soporte@techhub.dev",
+  "instagram": "https://instagram.com/techhub",
+  "tiktok": "https://tiktok.com/@techhub",
+  "youtube": "https://youtube.com/@techhub",
+  "linkedin": "https://linkedin.com/company/techhub",
+  "logo": "",
+  "favicon": "/favicon.ico",
+  "primaryColor": "#000000",
+  "secondaryColor": "#ffffff",
+  "scripts": [],
+  "domain": "techhub.dev",
+  "heroStyle": "TYPOGRAPHIC",
+  "accentColor": "#6366f1",
+  "authorName": "Alex Sistemas",
+  "authorTitle": "Arquitecto de Software & Creador de Contenido",
+  "authorPhilosophy": "\"Los sistemas simples que escalan bien son los más difíciles de construir.\"",
+  "authorBio": "Llevo más de 10 años diseñando infraestructuras digitales para startups y empresas. Ahora comparto todo lo que sé: arquitectura, IA aplicada, y los sistemas que realmente funcionan en producción."
+}
+
