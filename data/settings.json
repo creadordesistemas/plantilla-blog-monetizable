@@ -1,0 +1,24 @@
+{
+  "siteName": "Mi Blog",
+  "tagline": "Contenido que importa.",
+  "siteDescription": "Un espacio donde compartimos ideas, recursos y contenido de valor para nuestra comunidad.",
+  "contactEmail": "contacto@tudominio.com",
+  "supportEmail": "soporte@tudominio.com",
+  "instagram": "",
+  "tiktok": "",
+  "youtube": "",
+  "linkedin": "",
+  "logo": "",
+  "favicon": "/favicon.ico",
+  "primaryColor": "#000000",
+  "secondaryColor": "#ffffff",
+  "scripts": [],
+  "domain": "tudominio.com",
+  "heroStyle": "TYPOGRAPHIC",
+  "accentColor": "#6366f1",
+  "authorName": "[Tu Nombre]",
+  "authorTitle": "[Tu Título o Especialidad]",
+  "authorPhilosophy": "[Tu frase filosófica o lema personal]",
+  "authorBio": "[Escribe aquí una breve descripción sobre ti, tu trayectoria y lo que aportas a tu comunidad. Esta información aparece en la sección 'Quién Soy' de la página principal.]"
+}
+

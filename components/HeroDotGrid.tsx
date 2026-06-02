@@ -1,0 +1,182 @@
+'use client';
+
+import { motion } from 'framer-motion';
+import Link from 'next/link';
+
+interface HeroProps {
+  settings: {
+    siteName?: string;
+    tagline?: string;
+    siteDescription?: string;
+  };
+}
+
+export default function HeroDotGrid({ settings }: HeroProps) {
+  const siteName = settings.siteName || 'Mi Blog';
+  const tagline = settings.tagline || 'Contenido que importa.';
+  const description = settings.siteDescription || 'Un blog sobre tecnología, programación y sistemas.';
+
+  return (
+    <section className="hero-dots-section" style={{
+      minHeight: '85vh',
+      display: 'flex',
+      alignItems: 'center',
+      justifyContent: 'center',
+      backgroundColor: 'var(--background)',
+      position: 'relative',
+      overflow: 'hidden',
+      padding: '120px 24px 80px 24px'
+    }}>
+      {/* Patrón de Rejilla de Puntos CSS */}
+      <div style={{
+        position: 'absolute',
+        inset: 0,
+        backgroundImage: 'radial-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px)',
+        backgroundSize: '28px 28px',
+        backgroundPosition: 'center',
+        maskImage: 'radial-gradient(circle at center, black 40%, transparent 80%)',
+        WebkitMaskImage: 'radial-gradient(circle at center, black 40%, transparent 80%)',
+        pointerEvents: 'none',
+        zIndex: 1
+      }} />
+
+      {/* Orbe de resplandor suave */}
+      <div style={{
+        position: 'absolute',
+        width: '500px',
+        height: '500px',
+        borderRadius: '50%',
+        background: 'radial-gradient(circle, rgba(255, 255, 255, 0.015) 0%, transparent 70%)',
+        top: '50%',
+        left: '50%',
+        transform: 'translate(-50%, -50%)',
+        pointerEvents: 'none',
+        zIndex: 2
+      }} />
+
+      <div className="container" style={{
+        maxWidth: '1000px',
+        margin: '0 auto',
+        textAlign: 'center',
+        display: 'flex',
+        flexDirection: 'column',
+        alignItems: 'center',
+        zIndex: 10
+      }}>
+        {/* Label de la marca */}
+        <motion.span
+          initial={{ opacity: 0, scale: 0.95 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
+          style={{
+            fontSize: '0.75rem',
+            fontWeight: 700,
+            textTransform: 'uppercase',
+            letterSpacing: '0.3em',
+            color: 'var(--foreground-secondary)',
+            marginBottom: '2rem',
+            display: 'inline-block',
+            border: '1px solid var(--border)',
+            padding: '6px 16px',
+            borderRadius: '2px',
+            background: 'rgba(255,255,255,0.02)'
+          }}
+        >
+          {siteName} {"//"} TERMINAL ACTIVADA
+        </motion.span>
+
+        {/* Tagline */}
+        <motion.h1
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.1, ease: [0.22, 1, 0.36, 1] }}
+          style={{
+            fontFamily: 'Space Grotesk',
+            fontSize: 'clamp(2.5rem, 6.5vw, 5rem)',
+            lineHeight: 1.1,
+            fontWeight: 700,
+            letterSpacing: '-0.03em',
+            color: '#ffffff',
+            marginBottom: '2rem',
+            maxWidth: '900px'
+          }}
+        >
+          {tagline.toUpperCase()}
+        </motion.h1>
+
+        {/* Descripción */}
+        <motion.p
+          initial={{ opacity: 0, y: 15 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
+          style={{
+            color: 'var(--foreground-secondary)',
+            fontSize: 'clamp(1rem, 2vw, 1.15rem)',
+            lineHeight: 1.7,
+            maxWidth: '650px',
+            marginBottom: '3.5rem'
+          }}
+        >
+          {description}
+        </motion.p>
+
+        {/* Botones */}
+        <motion.div
+          initial={{ opacity: 0, y: 15 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.3, ease: [0.22, 1, 0.36, 1] }}
+          style={{
+            display: 'flex',
+            gap: '1.5rem',
+            justifyContent: 'center',
+            width: '100%',
+            flexWrap: 'wrap'
+          }}
+        >
+          <Link href="/blog" className="btn-primary" style={{
+            padding: '1.1rem 2.8rem',
+            fontSize: '0.9rem',
+            fontWeight: 700,
+            letterSpacing: '0.08em',
+            textDecoration: 'none',
+            display: 'inline-flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            borderRadius: '2px'
+          }}>
+            LEER EL BLOG
+          </Link>
+          <Link href="/comunidad" className="btn-outline" style={{
+            padding: '1.1rem 2.8rem',
+            fontSize: '0.9rem',
+            fontWeight: 700,
+            letterSpacing: '0.08em',
+            textDecoration: 'none',
+            display: 'inline-flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            borderRadius: '2px'
+          }}>
+            COMUNIDAD PRIVADA
+          </Link>
+        </motion.div>
+      </div>
+
+      <style dangerouslySetInnerHTML={{ __html: `
+        .hero-dots-section {
+          position: relative;
+        }
+        @media (max-width: 600px) {
+          .hero-dots-section {
+            min-height: 90vh !important;
+            padding-top: 140px !important;
+          }
+          .hero-dots-section Link {
+            width: 100% !important;
+            max-width: 320px;
+          }
+        }
+      ` }} />
+    </section>
+  );
+}

@@ -1,0 +1,42 @@
+name: CI — Lint & Build
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  lint-and-build:
+    name: 🔍 Lint & 🏗️ Build
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: 📥 Checkout código
+        uses: actions/checkout@v4
+
+      - name: ⚙️ Configurar Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: 'npm'
+
+      - name: 📦 Instalar dependencias
+        run: npm ci
+
+      - name: 🔍 Ejecutar ESLint
+        run: npm run lint
+
+      - name: 🏗️ Compilar proyecto
+        run: npm run build
+        env:
+          # Variables mínimas para que el build no falle
+          NEXT_PUBLIC_SUPABASE_URL: ${{ secrets.NEXT_PUBLIC_SUPABASE_URL || 'https://placeholder.supabase.co' }}
+          NEXT_PUBLIC_SUPABASE_ANON_KEY: ${{ secrets.NEXT_PUBLIC_SUPABASE_ANON_KEY || 'placeholder_anon_key' }}
+          NEXT_PUBLIC_SITE_URL: ${{ secrets.NEXT_PUBLIC_SITE_URL || 'https://example.com' }}
+          ADMIN_USER: ${{ secrets.ADMIN_USER || 'admin' }}
+          ADMIN_PASSWORD: ${{ secrets.ADMIN_PASSWORD || 'admin' }}
+          JWT_SECRET: ${{ secrets.JWT_SECRET || 'placeholder_jwt_secret_32_chars_min' }}
+          NEXT_PUBLIC_ADSENSE_CLIENT_ID: ${{ secrets.NEXT_PUBLIC_ADSENSE_CLIENT_ID || 'ca-pub-0000000000000000' }}
+          NEXT_PUBLIC_ADSENSE_TOP_SLOT: ${{ secrets.NEXT_PUBLIC_ADSENSE_TOP_SLOT || '0000000000' }}
+          NEXT_PUBLIC_ADSENSE_BOTTOM_SLOT: ${{ secrets.NEXT_PUBLIC_ADSENSE_BOTTOM_SLOT || '0000000000' }}
